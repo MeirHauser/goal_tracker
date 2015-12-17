@@ -1,0 +1,137 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#create{
+	margin-left: 20px;
+}
+#errors{
+
+	margin: auto;
+	width: 30%;
+}
+
+
+#header{
+	height: 45px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	margin-bottom:10px;
+}
+
+#header h1{
+	display: inline;
+}
+
+#hi{
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+#log-out{
+	float: right;
+	margin-right: 10px;
+	display: inline;
+	vertical-align: top;
+}
+
+#profile{
+	float: right;
+	font-size: 28px;
+	margin-right: 40px;
+}
+
+#gray_background{
+	background-color: lightgray;
+	padding-top: 15px;
+	height: 70px;
+}
+
+#projects{
+	background-color: lightgray;
+
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+
+div#projects div.row{
+    height: 60px;
+    width: 65%; 
+    margin: 0 auto;
+    background-color: white;
+    border-bottom: 3px solid #e8e8e8;
+    padding-top: 15px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+div#projects div.row .col-sm-3{
+	font-size: 20px;
+}
+
+div#create{
+	background-color: #eee;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-left: 0px;
+}
+
+div#create h3{
+	text-align: center;
+}
+
+#create form{
+	width: 40%;
+	margin:auto;
+}
+
+#create form button{
+	float: right;
+}
+
+div.jumbotron{
+	margin-bottom: 0px;
+}
+
+div.jumbotron h1{
+	text-align: center;
+}
+
+div.jumbotron .progress{
+	width: 70%;
+	margin: auto;
+}
+
+#back_projects{
+	float:right;
+	margin-right: 2%;
+	display: block;
+	height: 30px;
+}
+
+#logs{
+	padding-top: 20px;
+	background-color: #eee;
+	padding-bottom: 50px;
+}
+
+.checkbox_form{
+	width: 50%;
+	height: 30px;
+	margin-left: 45%;
+}
+
+.number{
+  transform: scale(1.7);
+}
+
+.checkbox{
+	display: inline;
+	margin-left: 15px;
+	font-size: 18px;
+}
+
+#no{
+	text-align: center;
+}

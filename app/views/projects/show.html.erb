@@ -1,0 +1,48 @@
+<% content_for :jquery do %>
+   	$(document).ready(function(){
+   		$( "form" ).change(function(){
+   			$.post( "/logs", $(this).serialize(), function( data ) {
+  				$( "#progress-bar" ).html( data.percent + '% Complete' );
+  				$( "#progress-bar" ).attr( 'aria-valuenow', data.percent);
+  				$( "#progress-bar" ).attr( 'style', 'width:' + data.percent + '%')
+			});
+  			if($(this).find('.method').length){
+  				$(this).find('.method').remove();
+  			}
+  			else{
+  				$(this).append("<input type='hidden' name='_method' value='delete' class = 'method'>");
+  			}
+  			return false;
+		});
+   });
+<% end %>
+<div class="jumbotron">
+	<h1><%= @project.name.capitalize %></h1>
+	<div class="progress">
+  		<div id = 'progress-bar' class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=<%= @percent %>
+  		aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{@percent}%" %>>
+    	<%= @percent %>% Complete 
+  		</div>
+	</div>
+</div>
+<div id = 'logs'>
+<a href="/projects/index/<%= @project.category_id %>" id = 'back_projects'>Back to Projects</a>
+	<% arr = [] %>
+	<% @logs.each do |log| %>
+	<% arr.push(log.number) %>
+	<% end %>
+	<% @sections.each do |section| %>
+		<form action = "/logs" method ='post' class = "checkbox_form">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<input type = 'hidden' name = 'project_id' value = <%= @project.id %>>
+			<% if arr.include?(section) %>
+				<input type='hidden' name='_method' value='delete' class = 'method'>
+			<% end %>
+				<input type = 'hidden' name = 'num' value = <%= section %>>
+			<input type="checkbox" name="number" class = 'number' value=<%= section %><% if arr.include?(section) %> checked <% end %>>
+			<p class = 'checkbox'><%= @project.section.capitalize %> <%= section %></p>
+		</form>
+	<% end %>
+</div>
+
+

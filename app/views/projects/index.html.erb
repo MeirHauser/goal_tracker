@@ -1,0 +1,59 @@
+<% if @projects.empty? %>
+	<p id = 'no' class = 'text-warning'>No current projects in this category. Please add one.</p>
+<% else %>
+	<div id = 'gray_background'>
+		<h2 id = 'hi'><%= @projects[0].category.category.capitalize %></h2>
+	</div>
+	<div id = 'projects'>
+		<% @projects.each do |project| %>
+			<% section = sections(project.amount) %>
+			<% percent = project.logs.length.to_f/section.length * 100 %>
+			<% percent = percent.round(2) %>
+			<a href="/projects/<%= project.id %>">
+				<div class="row"> 
+		    		<span class="col-sm-3"><%= project.name.capitalize %></span>
+		    		<div class="progress" class="col-sm-9">
+		      			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=<%= percent %>
+			  			aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{percent}%" %>><%= percent %>% Complete 
+		      			</div>
+		    		</div>
+		 		 </div>
+		 	</a>
+		<% end %>
+	</div>	
+<% end %>
+<div id = 'create'>
+	<h3>Create A New Project</h3>
+	<form action = '/projects' method = 'post' class="form-horizontal" role="form">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<input type = 'hidden' name = 'category_id' value = <%= @id %>>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for = 'name'>Name:</label>
+			<div class="col-sm-10">
+				<input class="form-control" type = 'text' name = 'name'>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for = 'section'>Section:</label>
+			<div class="col-sm-10">
+				<input class="form-control" type = 'text' name = 'section' placeholder = 'ie: Chapter, Page, Day'>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for = 'amount'>Amount:</label>
+			<div class="col-sm-10">
+				<input class="form-control" type = 'text' name = 'amount' placeholder= "ie: 1,4-7,10">
+			</div>
+		</div>
+		<div class="form-group"> 
+			<div class="col-sm-offset-2 col-sm-10">
+	  			<button type="submit" class="btn btn-success">Create</button>
+			</div>
+		</div>
+	</form>
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |x| %>
+			<div class="alert alert-warning" id = 'errors'><%= x %></div>
+		<% end %>
+	<% end %>
+</div>

@@ -1,0 +1,113 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#header{
+padding-right: 10px;
+padding-left: 10px;
+	padding-top: 10px;
+	margin-bottom:10px;
+}
+
+#header h1{
+	display: inline;
+}
+
+#log-out{
+	float: right;
+	margin-right: 1%;
+	display: inline;
+	vertical-align: top;
+}
+
+#profile{
+	float: right;
+	font-size: 28px;
+	margin-right: 2%;
+}
+
+#gray_background{
+	background-color: lightgray;
+	padding-top: 15px;
+	height: 70px;
+}
+
+#hi{
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+div#projects div.row{
+    height: 60px;
+    width: 65%; 
+    margin: 0 auto;
+    background-color: white;
+    border-bottom: 3px solid #e8e8e8;
+    padding-top: 15px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+div#projects div.row .col-sm-3{
+	font-size: 20px;
+}
+
+div.col-sm-4{
+	height: 110px;
+	padding-top: 35px;
+	background-color: white;
+	border-right: 10px solid #e8e8e8;
+	border-bottom: 10px solid #e8e8e8;
+}
+
+div.col-sm-4 p{
+	font-size: 20px;
+	width: 25%;
+	margin:auto;
+}
+
+div#categories div.row{
+	width: 65%;
+	margin:auto;
+	margin-bottom: 50px;
+}
+
+#projects{
+	background-color: lightgray;
+
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+
+#categories{
+	background-color: #eee;;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+#categories h3{
+	margin-top: 15px;
+	text-align: center;
+	margin-bottom: 35px;
+}
+
+#categories form{
+	width: 40%;
+	margin:auto;
+}
+
+#categories form button{
+	float: right;
+}
+
+#form_update{
+	width: 50%;
+	margin: auto;
+	margin-top: 30px;
+}
+
+#back{
+	float: right;
+	margin-right: 5%;
+}

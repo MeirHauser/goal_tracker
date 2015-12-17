@@ -1,0 +1,29 @@
+<div id = 'container'>
+	<div id = 'new_user'>
+		<h1>Sign Up</h1>
+		<form action='/users/' method='post'>
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		  	<p>
+			  	<label for = 'first_name'>First Name:</label>
+				<input type='text' name='first_name'>
+		  	</p>
+		  	<p>
+			  	<label for = 'last_name'>Last Name:</label>
+				<input type='text' name='last_name'>
+		  	</p>
+		  	<p>
+			  	<label for = 'email'>Email:</label>
+				<input type='text' name='email'>
+		  	</p>
+			  	<label for = 'password'>Password:</label>
+				<input type='password' name='password'>
+		  	</p>
+		  	</p>
+			  	<label for = 'password_confirmation'>Password Confirmation:</label>
+				<input type='password' name='password_confirmation'>
+		  	</p>
+		  	<input type='submit' value='Sign Up' class = 'wheat'>
+		</form>
+		<a href="/sessions/new">Or Log In</a>
+	</div>
+</div>

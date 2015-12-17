@@ -1,0 +1,50 @@
+
+<div id = 'gray_background'>
+	<h3 id = 'hi'>Current Projects</h3>
+</div>
+<div id = 'projects'>
+	<% @projects.each do |project| %>
+		<% section = sections(project.amount) %>
+		<% percent = project.logs.length.to_f/section.length * 100 %>
+		<% percent = percent.round(2) %>
+		<a href="/projects/<%= project.id %>">
+			<div class="row"> 
+	    		<span class="col-sm-3"><%= project.name.capitalize %></span>
+	    		<div class="progress" class="col-sm-9">
+	      			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=<%= percent %>
+		  			aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{percent}%" %>><%= percent %>% Complete 
+	      			</div>
+	    		</div>
+	 		 </div>
+	 	</a>
+	<% end %>
+</div>	
+<div id = 'categories'>
+	<h3>Categories</h3>
+	<div class="row">
+		<% @categories.each do |category| %>
+			<a href = '/projects/index/<%= category.id %>'>
+				<div class="col-sm-4">
+					<p><%= category.category.capitalize %></p>
+				</div>
+			</a>
+		<% end %>
+	</div>
+	<h3>Or Create A New Category</h3>
+	<form action = '/categories' method = 'post' class="form-horizontal" role="form">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for = 'category'>Name:</label>
+    		<div class="col-sm-10">
+    			<input class="form-control" type = 'text' name = 'category'>
+			</div>
+		</div>
+		<div class="form-group"> 
+    		<div class="col-sm-offset-2 col-sm-10">
+      			<button type="submit" class="btn btn-success">Create</button>
+    		</div>
+  		</div>
+	</form>
+</div>
+
+ </div>
